@@ -1,0 +1,7 @@
+/node_modules
+.DS_Store
+src/*
+babel.config.js
+**.test.js
+/coverage
+.travis.yml
