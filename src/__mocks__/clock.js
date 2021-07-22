@@ -1,4 +1,4 @@
-const clock = {};
+let clock = {};
 
 clock = {
     registeredHandlers: {
@@ -15,6 +15,7 @@ clock = {
             handler({data});
         });
     },
+    granularity: 'minutes',
     send: jest.fn(),
     readyState: 1,
     OPEN: 1
