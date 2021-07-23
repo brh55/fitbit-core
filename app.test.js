@@ -1,8 +1,5 @@
 import Core , { TimeElement } from './src/app';
 import clock from 'clock';
-import { JSDOM } from 'jsdom';
-
-jest.mock('fitfont');
 
 const getTime = (injectedDate, format) => {
     const minutes = ("0" + injectedDate.getMinutes()).slice(-2);
