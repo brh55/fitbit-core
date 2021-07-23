@@ -1,5 +1,5 @@
 # fitbit-core
-[![Travis branch](https://img.shields.io/travis/brh55/fitbit-core/main.svg?style=flat-square)](https://travis-ci.org/brh55/fitbit-core) [![Coveralls branch](https://img.shields.io/coveralls/brh55/fitbit-core/master.svg?style=flat-square)](https://coveralls.io/github/brh55/fitbit-core) [![npm badge](https://img.shields.io/npm/dt/fitbit-core.svg?style=flat-square)](https://www.npmjs.com/package/fitbit-core)
+[![Travis branch](https://img.shields.io/travis/brh55/fitbit-core/main.svg?style=flat-square)](https://travis-ci.com/brh55/fitbit-core) [![Coveralls branch](https://img.shields.io/coveralls/brh55/fitbit-core/master.svg?style=flat-square)](https://coveralls.io/github/brh55/fitbit-core) [![npm badge](https://img.shields.io/npm/dt/fitbit-core.svg?style=flat-square)](https://www.npmjs.com/package/fitbit-core)
 
 > 🌑 A library to handle core functionality for building Fitbit OS watchface
 
