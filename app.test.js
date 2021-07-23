@@ -3,7 +3,7 @@ import clock from 'clock';
 
 const getTime = (injectedDate, format) => {
     const minutes = ("0" + injectedDate.getMinutes()).slice(-2);
-    const time12h = `${(injectedDate.getHours() + 11) % 12 + 1}:${minutes}`;
+    const time12h = `${("0" + ((injectedDate.getHours() + 11) % 12 + 1)).slice(-2)}:${minutes}`;
     const time24h = `${("0" + injectedDate.getHours()).slice(-2)}:${minutes}`;
 
     if (format === '12h') {
