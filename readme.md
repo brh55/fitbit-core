@@ -35,7 +35,7 @@ if (user.clicked) {
 }
 ```
 
-**Example: Fitfont**
+**Example: Fitfont** <br>
 *index.view: View GUI File*
 ```xml
     <svg>
