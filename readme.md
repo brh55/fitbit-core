@@ -13,6 +13,10 @@ The purpose of this library is to provide a simple interface to abstract the bas
 - Simple interface
 - Support custom font through FitFont Rendering
 
+**Future Roadmap**
+- multi-line time (hour / minutes)
+- Support seconds
+
 ### Usage
 Create a `Text` or `FitFont` element in your `.view`. Provide that ID to the core class caller, and initialize the core. 
 

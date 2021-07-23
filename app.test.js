@@ -97,5 +97,4 @@ describe('fitbit-settings/app', () => {
         coreInstance.initialize();
         expect(coreInstance.date.get().text.includes(weekday)).toBe(true);
     });
-
 });
