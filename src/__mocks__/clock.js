@@ -10,9 +10,9 @@ clock = {
         handlers.push(cb);
         clock.registeredHandlers[eventName] = handlers;
     }),
-    emitMockEvent: (eventName, data) => {
-        clock.registeredHandlers[eventName].forEach((handler) => {
-            handler({data});
+    emitTick: (date) => {
+        clock.registeredHandlers['tick'].forEach((handler) => {
+            handler({ date });
         });
     },
     granularity: 'minutes',

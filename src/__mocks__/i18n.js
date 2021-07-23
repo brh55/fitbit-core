@@ -1,15 +1,13 @@
-export default {
-    gettext: (day) => {
-        const DAYS = {
-            'sunday': 'Sunday',
-            'monday': 'Monday',
-            'tuesday': 'Tuesday',
-            'wednesday': 'Wednesday',
-            'thursday': 'Thursday',
-            'friday': 'Friday',
-            'saturday': 'Saturday'
-        };
+export const gettext = (day) => {
+    const ES_DAYS = {
+        'sunday': 'Domingo',
+        'monday': 'Lunes',
+        'tuesday': 'Martes',
+        'wednesday': 'Miércoles',
+        'thursday': 'Jueves',
+        'friday': 'Viernes',
+        'saturday': 'Sábado'
+    };
 
-        return DAYS[day];
-    }
+    return ES_DAYS[day];
 };

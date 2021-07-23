@@ -1,3 +1,3 @@
 export const preferences = {
-    clockDisplay: '24h'
+    clockDisplay: '12h'
 };

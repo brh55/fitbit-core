@@ -140,7 +140,8 @@ export default class {
         this.date.set(currentDateObject);
 
         console.log('Configuring tick listener...');
-        clock.addEventListener('tick', ({date}) => {
+        clock.addEventListener('tick', ({ date }) => {
+            console.log('input', date)
             this.time.set(date);
 
             // Update date on date changes
