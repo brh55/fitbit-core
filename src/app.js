@@ -136,15 +136,15 @@ export default class {
     }
 
     initialize() {
-        console.debug('Initializing core...');
+        console.info('Initializing core...');
         clock.granularity = 'minutes';
 
-        console.debug('Configuring time...');
+        console.info('Configuring time...');
         const currentDateObject = new Date();
         this.time.set(currentDateObject);
         this.date.set(currentDateObject);
 
-        console.debug('Configuring tick listener...');
+        console.info('Configuring tick listener...');
         clock.addEventListener('tick', ({ date }) => {
             this.time.set(date);
 
