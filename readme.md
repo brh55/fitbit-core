@@ -135,6 +135,8 @@ Fitfont configuration, this will render the element as a Fitfont element instead
 **Type:** `boolean`<br>
 Set to true to automatically reference your PO files for translations. Days are all lowercase.
 
+*Note:* `fitbit-core` will use these `msgid` to map across your i18n/po files: `['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']`
+
 ## Core Instance API
 ### core.date
 **Type:** `Class Instance`<br>
