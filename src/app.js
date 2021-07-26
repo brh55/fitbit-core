@@ -87,13 +87,13 @@ export class TimeElement extends CoreElement {
 // options.fitfont = false || true
 // options.i18n = false || true
 export class DateElement extends CoreElement {
-    constructor({ dateId, fitfont, i18n, titleCase }) {
+    constructor({ dateId, fitfont, i18n, titleCase = true }) {
         super(dateId, { fitfont });
 
         this.options = {
             i18n: i18n || false,
             type: 'dateElement',
-            titleCase: titleCase || true
+            titleCase: titleCase
         };
     }
 
@@ -136,15 +136,15 @@ export default class {
     }
 
     initialize() {
-        console.log('Initializing core...');
+        console.debug('Initializing core...');
         clock.granularity = 'minutes';
 
-        console.log('Configuring time...');
+        console.debug('Configuring time...');
         const currentDateObject = new Date();
         this.time.set(currentDateObject);
         this.date.set(currentDateObject);
 
-        console.log('Configuring tick listener...');
+        console.debug('Configuring tick listener...');
         clock.addEventListener('tick', ({ date }) => {
             this.time.set(date);
 
