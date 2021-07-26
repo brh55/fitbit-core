@@ -87,12 +87,13 @@ export class TimeElement extends CoreElement {
 // options.fitfont = false || true
 // options.i18n = false || true
 export class DateElement extends CoreElement {
-    constructor({ dateId, fitfont, i18n }) {
+    constructor({ dateId, fitfont, i18n, titleCase }) {
         super(dateId, { fitfont });
 
         this.options = {
             i18n: i18n || false,
-            type: 'dateElement'
+            type: 'dateElement',
+            titleCase: titleCase || true
         };
     }
 
@@ -109,7 +110,11 @@ export class DateElement extends CoreElement {
             weekDay = gettext(weekDay);
         }
         
-        this.element.text = `${weekDay.charAt(0).toUpperCase() + weekDay.substring(1)}, ${dateObject.getDate()}`;
+        if (this.options.titleCase) {
+            this.element.text = `${weekDay.charAt(0).toUpperCase() + weekDay.substring(1)}, ${dateObject.getDate()}`;
+        } else {
+            this.element.text = `${weekDay}, ${dateObject.getDate()}`;
+        }
     }
 }
 
