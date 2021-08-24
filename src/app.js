@@ -56,13 +56,17 @@ class CoreElement {
 // options.format = 24h || 12h
 // options.fitfont = false || true
 export class TimeElement extends CoreElement {
-    constructor({ timeId, fitfont, format }) {
+    constructor({ timeId, fitfont, format, onTick }) {
         super(timeId, { fitfont });
     
         this.options = {
             format: format || preferences.clockDisplay,
-            type: 'timeElement'
+            type: 'timeElement',
         };
+
+        if (onTick) {
+            this.onTick = onTick;
+        }
     }
 
     deriveTime(dateObject) {
@@ -145,8 +149,13 @@ export default class {
         this.date.set(currentDateObject);
 
         console.info('Configuring tick listener...');
-        clock.addEventListener('tick', ({ date }) => {
+        clock.addEventListener('tick', (tickEvent) => {
+            const { date } = tickEvent;
             this.time.set(date);
+
+            if (this.time.onTick) {
+                this.time.onTick(tickEvent);
+            }
 
             // Update date on date changes
             if (this.date.updateRequired(date)) {

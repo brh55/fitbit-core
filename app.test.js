@@ -54,6 +54,23 @@ describe('fitbit-settings/app', () => {
         expect(coreInstance.time.get().text).toEqual(time24h);
     });
 
+
+    test('time should call tickCallback on time tick', () => {
+        const tickMock = jest.fn();
+        const coreInstance = new Core({
+            timeId: 'time',
+            format: '24h',
+            onTick: tickMock
+        }, { 
+            dateId: 'date'
+        });
+
+        coreInstance.initialize();
+        clock.emitTick(new Date());
+
+        expect(tickMock.mock.calls.length).toEqual(1);
+    });
+
     test('time and date should update on clock ticks', () => {
         const coreInstance = new Core({
             timeId: 'time',

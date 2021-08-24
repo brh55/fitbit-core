@@ -119,6 +119,10 @@ Fitfont configuration, this will render the element as a Fitfont element instead
 **Type:** `enum` ("12h"/"24h")<br>
 Configure which format will the clock display.
 
+##### onTick
+**Type:** `function` <br>
+Register a callback that will be executed upon tick (clock update) events.
+
 #### DateConfiguration
 **Type:** `object`<br>
 Configuration for the element used to display the **date**.
@@ -159,7 +163,7 @@ Sets the Time element color to the value inputted.
 ## Relevant
 This library works well in conjunction with:
 
-- `fitbit-settings` - A simple library to handle managing settings
+- [`fitbit-settings`](https://github.com/brh55/fitbit-settings) - A simple library to handle managing settings
 
 ## License
 MIT © [Brandon Him](https://github.com/brh55/fitbit-core)
