@@ -160,6 +160,9 @@ Parses the date object and sets element text value to the time.
 #### core.time.setColor(colorString)
 Sets the Time element color to the value inputted.
 
+#### core.time.onTick(onTickHandler)
+Configure a onTick handler to be called when the time ticks
+
 ## Relevant
 This library works well in conjunction with:
 

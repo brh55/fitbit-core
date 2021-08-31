@@ -65,7 +65,7 @@ export class TimeElement extends CoreElement {
         };
 
         if (onTick) {
-            this.onTick = onTick;
+            this.onTickHandler = onTick;
         }
     }
 
@@ -82,6 +82,10 @@ export class TimeElement extends CoreElement {
         } catch (err) {
             console.error(err);
         }
+    }
+
+    onTick(callback) {
+        this.onTickHandler = callback;
     }
 }
 
@@ -153,8 +157,8 @@ export default class {
             const { date } = tickEvent;
             this.time.set(date);
 
-            if (this.time.onTick) {
-                this.time.onTick(tickEvent);
+            if (typeof this.time.onTickHandler === 'function') {
+                this.time.onTickHandler(tickEvent);
             }
 
             // Update date on date changes
