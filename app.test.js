@@ -1,4 +1,4 @@
-import Core , { TimeElement } from './src/app';
+import Core, { TimeElement } from './src/app';
 import clock from 'clock';
 
 const getTime = (injectedDate, format) => {
@@ -39,6 +39,38 @@ describe('fitbit-settings/app', () => {
     test('time should have time display per user preference', () => {
         const time12h = getTime(new Date(), '12h');
         expect(core.time.get().text).toEqual(time12h);
+    });
+
+    test('time and date should render for custom fitfonts', () => {
+        const coreInstance = new Core(
+            {
+                timeId: 'time',
+                fitfont: {
+                    font: 'QDBetterComicSans_20',
+                    halign: 'middle',
+                    valign: 'top',
+                    letterspacing: 1
+                }
+            }, 
+            {
+                dateId: 'date',
+                fitfont: {
+                    font: 'QDBetterComicSans_20',
+                    halign: 'middle',
+                    valign: 'top',
+                    letterspacing: 1
+                }
+            }
+        );
+        const now = new Date();
+        const time12h = getTime(now, "12h");
+        expect(coreInstance.time.fitfont).toBeDefined;
+        expect(coreInstance.date.fitfont).toBeDefined;
+
+        coreInstance.initialize();
+        expect(coreInstance.time.element.text.mock.calls[0][0]).toEqual(time12h)
+        expect(coreInstance.date.element.text.mock.calls[0][0].includes(now.getDay())).toBeTrue;
+
     });
 
     test('time should support 24 hour format', () => {
@@ -91,7 +123,6 @@ describe('fitbit-settings/app', () => {
         futureDate.setDate(futureDate.getDate() + 1);
         const futureMinutes = (futureDate.getMinutes() + 10) % 60;
         futureDate.setMinutes(futureMinutes);
-        console.log(futureMinutes);
         const futureTime12H = getTime(futureDate, '12h');
 
         // Emit Event and Check Update
