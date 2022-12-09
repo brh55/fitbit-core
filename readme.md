@@ -39,7 +39,7 @@ if (user.clicked) {
 }
 ```
 
-**Example: Fitfont** <br>
+**Example: Using Custom Fonts with Fitfont** <br>
 *index.view: View GUI File*
 ```xml
     <svg>
@@ -71,7 +71,6 @@ if (user.clicked) {
 *your.js: Clockface JS File*
 ```js
 const CustomDateFont = {
-    dateId: 'date',
     font: 'Roboto_30',
     halign: 'middle',
     valign: 'start',
@@ -79,14 +78,20 @@ const CustomDateFont = {
 };
 
 const CustomTimeFont = {
-    dateId: 'time',
     font: 'Roboto_70',
     halign: 'middle',
     valign: 'start',
     letterspacing: 1
 };
 
-const core = new Core(CustomTimeFont, CustomDateFont);
+const core = new Core({
+    timeId: 'time',
+    fitfont: CustomTimeFont
+}, {
+    dateId: 'date',
+    fitfont: CustomDateFont
+});
+
 // Time and Date Displayed
 core.initialize();
 
